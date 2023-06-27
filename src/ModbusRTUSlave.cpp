@@ -11,7 +11,7 @@ void ModbusRTUSlave::begin(uint32_t rate) {
 	_t35us = MODBUS_RTU_T35US(rate);
 	_t15us = MODBUS_RTU_T15US(rate);
 #if defined(ESP32)
-	_serial.flush();
+	//_serial.flush();
 	_tx_buffer_size = _serial.availableForWrite();
 #endif
 }
