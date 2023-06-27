@@ -11,6 +11,9 @@ void ModbusRTUMaster::begin(uint32_t rate) {
 	_t35us = MODBUS_RTU_T35US(rate);
 	_t15us = MODBUS_RTU_T15US(rate);
 	_timeout = MODBUS_RTU_RESPONSE_TIMEOUT;
+	#if defined(ESP32)
+  	_tx_buffer_size = _serial.availableForWrite();
+	#endif
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
